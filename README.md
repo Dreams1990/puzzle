@@ -14,7 +14,10 @@
 - Must be done in React √
 - Keep the puzzle state in redux instead of local state √
 - Make use of the 'reselect' library by retrieving and displaying the grid-index-position of the empty tile √
-- Set up actions and reducers using community standards/libraries, and explain the choice :Using 'actionCreators' to create actions
+- Set up actions and reducers using community standards/libraries, and explain the choice :
+   - 1）Set the value of the action type to a constant（The console will display any spelling errors instead of failing to run without prompting.）
+   - 2）Using 'actionCreators' to create actions（Making actions are easier to migrate and test）
+- Add a unit test for the reducer √ tape
 
 
 ## Dependencies
