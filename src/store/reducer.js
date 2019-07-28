@@ -8,17 +8,22 @@ const defaultState = {
   shuffleMoves: 23,
 }
 
-export default (state = defaultState, action) => {
-  if (action.type === constants.INITIAL_POSITION) {
-    const newState = JSON.parse(JSON.stringify(state));
-    newState.currentPosition = action.currentPosition;
+export default function (state = defaultState, action) {
+  const { currentPosition, completedPosition} = action
+  const newState = JSON.parse(JSON.stringify(state));
+  switch (action.type) {
+    case constants.INITIAL_POSITION:
     newState.completedPosition = action.completedPosition;
-    return newState;
-  }
-  if (action.type === constants.MOVE_POSITION) {
-    const newState = JSON.parse(JSON.stringify(state));
+    return newState
+    break;
+
+    case constants.MOVE_POSITION:
     newState.currentPosition = action.currentPosition;
-    return newState;
+    return newState
+    break;
+
+
+    default:
+    return newState
   }
-  return state;
 }

@@ -1,8 +1,7 @@
 import * as constants from './constants';
 
-export const getPosition = (currentPosition,completedPosition) => ({
+export const initalCompletedPosition = (completedPosition) => ({
 	type: constants.INITIAL_POSITION,
-	currentPosition,
   completedPosition
 });
 

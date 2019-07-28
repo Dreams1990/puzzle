@@ -31,19 +31,11 @@ test('gamePlayer reducer', (t) => {
   t.deepEqual(
     reducer([], {
       type: 'INITIAL_POSITION',
-      currentPosition: [{
-        top: 0,
-        left: 0
-      }],
       completedPosition: [{
         top: 0,
         left: 0
       }]
     }), {
-      currentPosition: [{
-        top: 0,
-        left: 0
-      }],
       completedPosition: [{
         top: 0,
         left: 0

@@ -9,10 +9,13 @@
 - Movement of a piece is just possible when there is a empty cell next to it.
 - Just one movement is possible each time.
 - Game ends when all pieces are in the right position, showing the image clearly.
-- Each piece can move in 4 directions (up, down, left, right).
-- At start all pieces are scrambled.
-- Movement of a piece is just possible when there is a empty cell next to it.
-- Just one movement is possible each time.
+
+## Requirement
+- Must be done in React √
+- Keep the puzzle state in redux instead of local state √
+- Make use of the 'reselect' library by retrieving and displaying the grid-index-position of the empty tile √
+- Set up actions and reducers using community standards/libraries, and explain the choice :Using 'actionCreators' to create actions
+
 
 ## Dependencies
 
@@ -24,8 +27,6 @@
 * **tape** `4.11.0`
 
 ## Run Dev
-
-* webpack dev server with hot reloading, no server rendering
 
 ```
 npm install

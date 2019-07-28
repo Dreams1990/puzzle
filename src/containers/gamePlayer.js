@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import store from "../store";
 import { connect } from "react-redux";
-import { getPosition, movePosition } from "../store/actionCreators";
+import { initalCompletedPosition, movePosition } from "../store/actionCreators";
 import { gamePlayerSelector } from "../store/selector";
 import { Box, H1, Win } from "./gamePlayer.style";
 import Tile from "../components/tile";
@@ -54,11 +54,12 @@ class GamePlayer extends Component {
   };
 
   moveTile(i) {
-    const currentPosition = [...this.props.currentPosition];
+    const { currentPosition, movePosition } = this.props;
+    const currentPositionNew = [...this.props.currentPosition];
     const length = currentPosition.length - 1;
-    currentPosition[i] = currentPosition[length];
-    currentPosition[length] = this.props.currentPosition[i];
-    this.props.movePosition(currentPosition);
+    currentPositionNew[i] = currentPosition[length];
+    currentPositionNew[length] = currentPosition[i];
+    movePosition(currentPositionNew);
   }
 
   isNextToEmpty(tile) {
@@ -120,7 +121,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     handlePosition(currentPosition, completedPosition) {
-      dispatch(getPosition(currentPosition, completedPosition));
+      dispatch(movePosition(currentPosition));
+      dispatch(initalCompletedPosition(completedPosition));
     },
     movePosition(currentPosition) {
       dispatch(movePosition(currentPosition));
